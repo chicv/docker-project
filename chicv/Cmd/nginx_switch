@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+NGINX_FILE="/etc/nginx/sites-enabled/chicv.conf"
+first="default"
+if [ $# -ge 1 ];then
+    first=$1
+fi;
+
+if [ $first == "pro" ]; then
+    sed -i  "0,/proxy_pass\ http\:\/\/\$host:933[0-9]\$request_uri/s/proxy_pass\ http\:\/\/\$host:933[0-9]\$request_uri/proxy_pass\ http\:\/\/\$host:9337\$request_uri/" $NGINX_FILE
+else
+    sed  -i "0,/set\ \$alphaHost\ \"[a-zA-Z0-9]*\"/s/set\ \$alphaHost\ \"[a-zA-Z0-9]*\"/set \$alphaHost\ \"$first\"/" $NGINX_FILE
+    sed -i  "0,/proxy_pass\ http\:\/\/\$host:933[0-9]\$request_uri/s/proxy_pass\ http\:\/\/\$host:933[0-9]\$request_uri/proxy_pass\ http\:\/\/\$host:9336\$request_uri/" $NGINX_FILE
+fi
+sudo nginx -s reload
+redis-cli flushall

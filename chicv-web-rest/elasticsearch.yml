@@ -1,0 +1,6 @@
+ path.logs: /home/chicv/logs/elaticsearch.log
+ bootstrap.mlockall: false
+ network.host: 0.0.0.0
+ http.port: 9200
+ script.inline: true
+ script.indexed: true

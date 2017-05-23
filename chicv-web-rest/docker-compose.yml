@@ -1,0 +1,30 @@
+version: "2"
+services:
+   chicv-web-rest:
+    build:  .
+    extra_hosts:
+     - "sw.app:127.0.0.1"
+     - "jfn.app:127.0.0.1"
+    ports:
+     - "18090:80"
+     - "18091:18091"
+     - "18092:18092"
+     - "3306:3306"
+     - "9203:9200"
+    volumes:
+      - "/Users/shiyy/Work/stylewe:/home/chicv/Code"
+      - "./Cmd:/home/chicv/Cmd"
+      - "./sites-enabled:/etc/nginx/sites-enabled"
+    mem_limit: "2g"
+    memswap_limit: 2g
+    privileged: true
+    tty: true
+    cpu_shares: 73
+    cpuset: 0,1
+    container_name: chicv-web-rest
+    dns: 8.8.8.8
+    ulimits:
+     nproc: 65535
+     nofile:
+      soft: 20000
+      hard: 40000

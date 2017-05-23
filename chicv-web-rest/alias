@@ -1,0 +1,4 @@
+
+alias vm="docker exec -it chicv-web-rest bash"
+alias cl="docker exec chicv-web-rest redis-cli flushall"
+alias nginx_switch="docker exec chicv-web-rest nginx_switch"
