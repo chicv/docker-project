@@ -25,7 +25,7 @@ RUN apt-get install php7.1 php7.1-common  -y --allow-unauthenticated \
  && apt-get install php7.1-curl php-redis php7.1-xml php7.1-zip php7.1-gd php7.1-mysql php7.1-mbstring -y --allow-unauthenticated \
  && apt-get install php7.1-fpm php7.1-cli php7.1-interbase php7.1-json php7.1-intl  -y --allow-unauthenticated  \
  && apt-get install php7.1-opcache php7.1-mcrypt php7.1-readline  -y  --allow-unauthenticated \
- && apt-get install nginx composer -y \
+ && apt-get install nginx composer dnsmasq -y \
  && apt-get install vim -y \
  && apt-get install -y net-tools
 
@@ -48,6 +48,8 @@ RUN sed -i "s/error_log = \/var\/log\/php7.1-fpm.log/error_log = \/home\/chicv\/
     && sed -i "s/group = www-data/group = chicv/" /etc/php/7.1/fpm/pool.d/www.conf \
     && sed -i "s/listen.owner = www-data/listen.owner = chicv/" /etc/php/7.1/fpm/pool.d/www.conf \
     && sed -i "s/listen.group = www-data/listen.group = chicv/" /etc/php/7.1/fpm/pool.d/www.conf \
+    && echo "nameserver 8.8.8.8" > /etc/resolv.dnsmasq \
+    && sed -i "s/^resolv-file.*$/resolv-file=\/etc\/resolv.dnsmasq/" /etc/dnsmasq.conf  \
     && sed -i /\ SCRIPT_FILENAME\ /d /etc/nginx/fastcgi_params \
     && chmod 644 /home/chicv/.ssh/id_rsa.pub\
     && chmod 700 /home/chicv/.ssh \
