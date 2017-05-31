@@ -12,7 +12,7 @@ services:
      - "3306:3306"
      - "9203:9200"
     volumes:
-      - "/Users/shiyy/Work/stylewe:/home/chicv/Code"
+      - "/Users/shiyy/Code:/home/chicv/Code"
       - "./Cmd:/home/chicv/Cmd"
       - "./sites-enabled:/etc/nginx/sites-enabled"
     mem_limit: "2g"
