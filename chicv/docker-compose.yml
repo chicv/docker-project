@@ -11,7 +11,7 @@ services:
      - "18081:18081"
      - "18082:18082"
     volumes:
-      - "/Users/shiyy/Work/stylewe:/home/chicv/Code"
+      - "~/Code:/home/chicv/Code"
       - "./Cmd:/home/chicv/Cmd"
       - "./sites-enabled:/etc/nginx/sites-enabled"
     mem_limit: "2g"
