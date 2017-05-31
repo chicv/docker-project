@@ -2,6 +2,7 @@ version: "2"
 services:
    chicv:
     build:  .
+    hostname: web-only
     extra_hosts:
      - "sw.app:127.0.0.1"
      - "jfn.app:127.0.0.1"

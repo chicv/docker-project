@@ -2,6 +2,7 @@ version: "2"
 services:
    chicv-web-rest:
     build:  .
+    hostname: web-rest
     extra_hosts:
      - "sw.app:127.0.0.1"
      - "jfn.app:127.0.0.1"
