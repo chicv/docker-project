@@ -6,6 +6,9 @@ services:
     extra_hosts:
      - "sw.app:127.0.0.1"
      - "jfn.app:127.0.0.1"
+     - "nora.app:127.0.0.1"
+     - "fr.app:127.0.0.1"
+     - "ctx.app:127.0.0.1"
     ports:
      - "18090:80"
      - "18091:18091"
