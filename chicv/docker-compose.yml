@@ -3,13 +3,6 @@ services:
    chicv:
     build:  .
     hostname: web-only
-    extra_hosts:
-     - "sw.app:127.0.0.1"
-     - "jfn.app:127.0.0.1"
-     - "fr.app:127.0.0.1"
-     - "nora.app:127.0.0.1"
-     - "ctx.app:127.0.0.1"
-     - "cco.app:127.0.0.1"
     ports:
      - "18080:80"
      - "18081:18081"

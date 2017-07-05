@@ -66,6 +66,7 @@ RUN sed -i "s/error_log = \/var\/log\/php7.1-fpm.log/error_log = \/home\/chicv\/
     && chmod 644 /home/chicv/.ssh/id_rsa.pub\
     && echo "nameserver 8.8.8.8" > /etc/resolv.dnsmasq \
     && sed -i "s/^resolv-file.*$/resolv-file=\/etc\/resolv.dnsmasq/" /etc/dnsmasq.conf  \
+    && echo "address=/.app/127.0.0.1 " >  /etc/dnsmasq.conf \
     && chmod 700 /home/chicv/.ssh \
     && chown chicv:chicv /home/chicv -R
 RUN service mysql start \
