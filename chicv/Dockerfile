@@ -49,7 +49,7 @@ RUN sed -i "s/error_log = \/var\/log\/php7.1-fpm.log/error_log = \/home\/chicv\/
     && sed -i "s/listen.owner = www-data/listen.owner = chicv/" /etc/php/7.1/fpm/pool.d/www.conf \
     && sed -i "s/listen.group = www-data/listen.group = chicv/" /etc/php/7.1/fpm/pool.d/www.conf \
     && echo "nameserver 8.8.8.8" > /etc/resolv.dnsmasq \
-    && sed -i "s/^resolv-file.*$/resolv-file=\/etc\/resolv.dnsmasq/" /etc/dnsmasq.conf  \
+    && sed -i "s/^#resolv-file.*$/resolv-file=\/etc\/resolv.dnsmasq/" /etc/dnsmasq.conf  \
     && sed -i /\ SCRIPT_FILENAME\ /d /etc/nginx/fastcgi_params \
     && echo "address=/.app/127.0.0.1 " >>  /etc/dnsmasq.conf \
     && chmod 644 /home/chicv/.ssh/id_rsa.pub\
