@@ -1,3 +1,4 @@
 alias vm="docker exec -it chicv-web bash"
 alias cl="docker exec chicv-web redis-cli flushall"
 alias nginx_switch="docker exec chicv-web /home/chicv/Cmd/nginx_switch"
+// address=/.app/.l.stylewe.com/.l.justfashionnow.com/.l.fashionjodi.com/.l.chichola.com/.l.popjulia.com/.l.noracora.com/127.0.0.1

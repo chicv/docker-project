@@ -52,8 +52,6 @@ COPY  nginx.conf  /etc/nginx/nginx.conf
 COPY  elasticsearch.yml  /etc/elasticsearch/elasticsearch.yml
 COPY  jfn.tar.gz  /home/chicv/jfn.tar.gz
 COPY  bashrc  /home/chicv/.bashrc
-COPY id_rsa /home/chicv/.ssh/id_rsa
-COPY id_rsa.pub /home/chicv/.ssh/id_rsa.pub
 RUN sed -i "s/error_log = \/var\/log\/php7.1-fpm.log/error_log = \/home\/chicv\/logs\/php7-error.log/" /etc/php/7.1/fpm/php-fpm.conf \
     && sed -i "s/^error_reporting\s=\sE_ALL\s&\s~E_DEPRECATED\s&\s~E_STRICT$/error_reporting = E_ALL/g" /etc/php/7.1/fpm/php.ini \
     && sed -i "s/^display_errors = Off$/display_errors = On/g" /etc/php/7.1/fpm/php.ini \
@@ -63,11 +61,9 @@ RUN sed -i "s/error_log = \/var\/log\/php7.1-fpm.log/error_log = \/home\/chicv\/
     && sed -i "s/listen.group = www-data/listen.group = chicv/" /etc/php/7.1/fpm/pool.d/www.conf \
     && usermod -d /var/lib/mysql/ mysql \
     && sed -i /\ SCRIPT_FILENAME\ /d /etc/nginx/fastcgi_params \
-    && chmod 644 /home/chicv/.ssh/id_rsa.pub\
     && echo "nameserver 8.8.8.8" > /etc/resolv.dnsmasq \
     && sed -i "s/^resolv-file.*$/resolv-file=\/etc\/resolv.dnsmasq/" /etc/dnsmasq.conf  \
     && echo "address=/.app/127.0.0.1 " >>  /etc/dnsmasq.conf \
-    && chmod 700 /home/chicv/.ssh \
     && chown chicv:chicv /home/chicv -R
 RUN service mysql start \
     &&  mysql -uroot -pchicv -e 'CREATE USER stylewe IDENTIFIED BY "stylewe";GRANT ALL PRIVILEGES ON *.* TO stylewe@"%";create database stylewe DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;flush privileges;'\
