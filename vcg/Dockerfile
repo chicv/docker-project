@@ -1,14 +1,12 @@
 #
-# Ubuntu Dockerfile
-#
-# https://github.com/dockerfile/ubuntu
+#  docker pull registry.docker-cn.com/library/ubuntu:16.04
 #
 
 # Pull base image.
 FROM ubuntu:16.04
 
 ENV LANG=C.UTF-8
-ARG DEBIAN_FRONTED=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN useradd vcg -p vcg -s /bin/bash
 
@@ -28,19 +26,17 @@ RUN apt-get -y upgrade \
 RUN \
   apt-get install -y byobu curl git htop man unzip vim wget \
   && apt-get install -y bash-completion \
-  && apt-get install -y software-properties-common python-software-properties \
+  && apt-get install -y software-properties-common python-software-properties
 
 # Make WorkSpace
 RUN \
-  mkdir /home/vcg/.ssh -p \
+  mkdir -p /home/vcg/.ssh/  \
   && chown vcg:vcg /home/vcg -R
 
 COPY id_rsa /home/vcg/.ssh/id_rsa
 COPY id_rsa.pub /home/vcg/.ssh/id_rsa.pub
 
-
-
-
+ENV DEBIAN_FRONTEND teletype
 
 USER vcg 
 WORKDIR /home/vcg

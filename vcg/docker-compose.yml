@@ -2,6 +2,7 @@ version: '2.1'
 
 services:
   vcg:
+    image: vcg
     build: .
     environment:
       NODE_ENV: production
