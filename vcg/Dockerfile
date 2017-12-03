@@ -33,6 +33,7 @@ RUN \
   mkdir -p /home/vcg/.ssh/  \
   && chown vcg:vcg /home/vcg -R
 
+COPY bashrc /home/vcg/.bashrc
 COPY id_rsa /home/vcg/.ssh/id_rsa
 COPY id_rsa.pub /home/vcg/.ssh/id_rsa.pub
 

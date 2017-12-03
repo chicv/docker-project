@@ -6,5 +6,20 @@ services:
     build: .
     environment:
       NODE_ENV: production
+    volumes:
+       - "~/Code:/home/vcg/Code"
+    mem_limit: "2g"
+    memswap_limit: 2g
+    privileged: true
+    tty: true
+    cpu_shares: 73
+    cpuset: 0,1
+    container_name: vcg-web
+    dns: 8.8.8.8
+    ulimits:
+      nproc: 65535
+      nofile:
+       soft: 20000
+       hard: 40000
     ports:
       - 6060:6060
