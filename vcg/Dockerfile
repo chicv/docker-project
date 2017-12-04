@@ -41,9 +41,12 @@ RUN \
   && chown vcg:vcg /home/vcg -R
 
 
-#启动后执行此脚本
-CMD /bin/bash 
 
 USER vcg 
 WORKDIR /home/vcg
+
+#启动后执行此脚本
+
+CMD /bin/bash 
+
 RUN echo 'thanks for building'
