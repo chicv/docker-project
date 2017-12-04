@@ -5,8 +5,9 @@
 # Pull base image.
 FROM ubuntu:16.04
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 ENV LANG=C.UTF-8
-ENV DEBIAN_FRONTEND noninteractive
 
 RUN useradd vcg -p vcg -s /bin/bash
 
@@ -28,16 +29,20 @@ RUN \
   && apt-get install -y bash-completion \
   && apt-get install -y software-properties-common python-software-properties
 
-# Make WorkSpace
-RUN \
-  mkdir -p /home/vcg/.ssh/  \
-  && chown vcg:vcg /home/vcg -R
-
 COPY bashrc /home/vcg/.bashrc
 COPY id_rsa /home/vcg/.ssh/id_rsa
 COPY id_rsa.pub /home/vcg/.ssh/id_rsa.pub
 
-ENV DEBIAN_FRONTEND teletype
+# Make WorkSpace
+RUN \
+  mkdir -p /home/vcg/.ssh/  \
+  && chmod 644 /home/vcg/.ssh/id_rsa.pub\
+  && chmod 700 /home/vcg/.ssh \
+  && chown vcg:vcg /home/vcg -R
+
+
+#启动后执行此脚本
+CMD /bin/bash 
 
 USER vcg 
 WORKDIR /home/vcg
