@@ -5,7 +5,7 @@ services:
     image: vcg
     build: .
     environment:
-      NODE_ENV: production
+      NODE_ENV: development 
     volumes:
        - "~/Code:/home/vcg/Code"
     mem_limit: "2g"
@@ -22,4 +22,4 @@ services:
        soft: 20000
        hard: 40000
     ports:
-      - 6060:6060
+      - 6060:3000

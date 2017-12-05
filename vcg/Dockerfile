@@ -29,6 +29,11 @@ RUN \
   && apt-get install -y bash-completion \
   && apt-get install -y software-properties-common python-software-properties
 
+RUN echo 'Install Nodejs.....'
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+  && apt-get install -y nodejs
+
 COPY bashrc /home/vcg/.bashrc
 COPY id_rsa /home/vcg/.ssh/id_rsa
 COPY id_rsa.pub /home/vcg/.ssh/id_rsa.pub
