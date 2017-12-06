@@ -12,8 +12,6 @@ services:
     memswap_limit: 2g
     privileged: true
     tty: true
-    cpu_shares: 73
-    cpuset: 0,1
     container_name: vcg-web
     dns: 8.8.8.8
     ulimits:
