@@ -34,15 +34,8 @@ magenta=$'\[\e[1;35m\]'
   white=$'\[\e[1;37m\]'
  normal=$'\[\e[m\]'
 
-export PS1="$normal[$blue\u@$magenta\h$white:$cyan\w$yellow\$git_branch$white]\$ $normal"
-export PATH="$PATH:/home/chicv/Cmd"
 alias ls='ls --color'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias grep="grep --color=auto"
-alias s-dir='cd ~/Code/stylewe'
-alias r-dir='cd ~/Code/rest'
-alias a-dir='cd ~/Code/admin'
-alias autopull="~/Cmd/auto-pull.sh"
-alias mm="mysql -ustylewe -pstylewe stylewe"
