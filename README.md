@@ -16,7 +16,7 @@
   1. cd  chicv-web
   2. docker-composer up -d
   3. 等待大概20分钟
- * sudo init.sh
+  4. copy local_nginx.conf /usr/local/etc/nginx/servers/local_nginx.conf && 
 ### 代码部署
  * 生成ssh 公钥，提交给有关部门
  - 前端代码
