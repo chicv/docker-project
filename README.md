@@ -33,5 +33,5 @@
  *  nginx_switch pro 切换前端页面数据源到正式环境
  *  浏览器打开l.stylewe.com 正常渲染 ，推荐使用chrome浏览器
 ### 其他
- *  编辑器推荐atom 或者 sublime
+ *  编辑器推荐atom 或者 vscode
  
