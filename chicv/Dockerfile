@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:16.04
 
 RUN useradd chicv -p chicv -s /bin/bash
 MAINTAINER chicv
