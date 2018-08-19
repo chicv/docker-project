@@ -9,6 +9,8 @@ services:
      - "18092:18092"
      - "3306:3306"
      - "9203:9200"
+     - "8086:8086"
+     - "8083:8083"
     volumes:
       - "~/Code:/home/chicv/Code"
       - "./Cmd:/home/chicv/Cmd"
